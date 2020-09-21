@@ -35,7 +35,7 @@ TRACING_ENABLED=false
 TRACING_NAMESPACE=tracing
 
 PULL_SECRET=ibm-entitlement-key
-IMAGE_REGISTRY="image-registry.openshift-image-registry:5000"
+IMAGE_REGISTRY="image-registry.openshift-image-registry.svc:5000"
 #if $OFFLINE_INSTALL; then 
  # IMAGE_REGISTRY="default-route-openshift-image-registry.cloud-integration-224380-6fb0b86391cd68c8282858623a1dddff-0000.eu-gb.containers.appdomain.cloud/mq"; 
  # PULL_SECRET=$(oc get secrets -n mq | grep deployer-dockercfg |  awk -F' ' '{print $1 }'); 
