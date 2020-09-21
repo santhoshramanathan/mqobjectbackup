@@ -1,0 +1,57 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pvc-04671101-68c1-45f5-b557-76d1ac929ed6
+  selfLink: /api/v1/persistentvolumes/pvc-04671101-68c1-45f5-b557-76d1ac929ed6
+  uid: 0d40e01d-6a74-4679-acc6-c0fbbe12bdac
+  resourceVersion: '93671'
+  creationTimestamp: '2020-06-24T09:36:46Z'
+  labels:
+    server: fsf-lon0601c-fz.adn.networklayer.com
+    failure-domain.beta.kubernetes.io/zone: lon06
+    path: DSW02SEV2094784_86data01
+    Iops: '4'
+    failure-domain.beta.kubernetes.io/region: eu-gb
+    StorageType: ENDURANCE
+    billingType: hourly
+    volumeId: '150804250'
+    CapacityGb: '20'
+    Username: DSW02SEV2094784_86
+    Datacenter: lon06
+  annotations:
+    ibmFileProvisionerIdentity: cacd0b79-b5d8-11ea-9480-fad446334a09
+    pv.kubernetes.io/provisioned-by: ibm.io/ibmc-file
+  finalizers:
+    - kubernetes.io/pv-protection
+spec:
+  capacity:
+    storage: 20Gi
+  nfs:
+    server: fsf-lon0601c-fz.adn.networklayer.com
+    path: /DSW02SEV2094784_86/data01
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    kind: PersistentVolumeClaim
+    namespace: mq
+    name: data-my-mqrel1-ibm-mq-0
+    uid: 04671101-68c1-45f5-b557-76d1ac929ed6
+    apiVersion: v1
+    resourceVersion: '93134'
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: ibmc-file-silver
+  volumeMode: Filesystem
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: failure-domain.beta.kubernetes.io/zone
+              operator: In
+              values:
+                - lon06
+            - key: failure-domain.beta.kubernetes.io/region
+              operator: In
+              values:
+                - eu-gb
+status:
+  phase: Bound

@@ -1,0 +1,4 @@
+@Library('one_click_mqdeploy@master')
+
+import poc.lib.*
+mqjobhandler()

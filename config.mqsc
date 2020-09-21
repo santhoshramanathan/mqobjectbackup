@@ -1,0 +1,7 @@
+* Create Local Queues that my application(s) can use.
+DEFINE QLOCAL('EXAMPLE.QUEUE.1') REPLACE
+DEFINE QLOCAL('EXAMPLE.QUEUE.2') REPLACE
+
+* Create a Dead Letter Queue for undeliverable messages and set the Queue Manager to use it.
+DEFINE QLOCAL('EXAMPLE.DEAD.LETTER.QUEUE') REPLACE
+ALTER QMGR DEADQ('EXAMPLE.DEAD.LETTER.QUEUE')

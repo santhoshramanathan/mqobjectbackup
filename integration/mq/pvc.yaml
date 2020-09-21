@@ -1,0 +1,39 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  annotations:
+    ibm.io/provisioning-status: complete
+    pv.kubernetes.io/bind-completed: 'yes'
+    pv.kubernetes.io/bound-by-controller: 'yes'
+    volume.beta.kubernetes.io/storage-provisioner: ibm.io/ibmc-file
+  selfLink: /api/v1/namespaces/mq/persistentvolumeclaims/data-my-mqrel1-ibm-mq-0
+  resourceVersion: '93674'
+  name: data-my-mqrel1-ibm-mq-0
+  uid: 04671101-68c1-45f5-b557-76d1ac929ed6
+  creationTimestamp: '2020-06-24T09:35:24Z'
+  namespace: mq
+  finalizers:
+    - kubernetes.io/pvc-protection
+  labels:
+    app: ibm-mq
+    chart: ibm-mqadvanced-server-integration-prod
+    component: server
+    heritage: Tiller
+    region: eu-gb
+    release: my-mqrel1
+    zone: lon06
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  volumeName: pvc-04671101-68c1-45f5-b557-76d1ac929ed6
+  storageClassName: ibmc-file-silver
+  volumeMode: Filesystem
+status:
+  phase: Bound
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 20Gi
